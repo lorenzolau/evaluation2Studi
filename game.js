@@ -93,7 +93,6 @@ function holdScore(){
   currentPlayer.globalDiceScore.textContent = score;
   
   if(score >= 100) {
-    resetGame ()
     win();
   }
   currentDiceScore = 0;
@@ -102,6 +101,7 @@ function holdScore(){
 }
 function win(){
   alert(currentPlayer.name +" Gagne la partie !")
+  resetGame ();
 }
 
 // events
