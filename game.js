@@ -7,6 +7,8 @@ const currentScorePlayer1 = document.getElementById('currentScorePlayer1');
 const scorePlayer2 = document.getElementById('scorePlayer2');
 const currentScorePlayer2 = document.getElementById('currentScorePlayer2');
 const diceImage = document.getElementById('diceImg');
+const player1Font = document.getElementById('player1');
+const player2Font = document.getElementById('player2');
 
 // dice face images
 var diceFaceNumber = {
@@ -23,17 +25,22 @@ var diceFaceNumber = {
 let currentPlayer;
 let currentDiceScore = 0;
 let globalDiceScore = 0;
+let gameRunning = false;
+let playerFontColor = "paleturquoise";
+let playerFontColorNotPlaying = "white";
 
 let Player1 = {
   name: "Joueur 1",
   currentDiceScore : currentScorePlayer1,
-  globalDiceScore : scorePlayer1
+  globalDiceScore : scorePlayer1,
+  playerFont : player1Font
 };
 
 let Player2 = {
   name: "Joueur 2",
   currentDiceScore : currentScorePlayer2,
-  globalDiceScore : scorePlayer2
+  globalDiceScore : scorePlayer2,
+  playerFont : player2Font
 };
 
 // Functions
@@ -41,7 +48,9 @@ function randomNumber () {
   return Math.floor(Math.random() * 5) +1;
 }
 function resetGame () {
+  gameRunning = true;
   currentPlayer = Player1;
+  currentPlayer.playerFont.style.backgroundColor= playerFontColor;
   scorePlayer1.textContent = 0;
   currentScorePlayer1.textContent = 0;
   scorePlayer2.textContent = 0;
@@ -51,34 +60,38 @@ function resetGame () {
 }
 function changePlayer(){
   if(currentPlayer == Player1){
+    currentPlayer.playerFont.style.backgroundColor =playerFontColorNotPlaying;
     currentPlayer = Player2;
+    currentPlayer.playerFont.style.backgroundColor = playerFontColor;
+    
   }
   else{
+    currentPlayer.playerFont.style.backgroundColor=playerFontColorNotPlaying;
     currentPlayer = Player1;
+    currentPlayer.playerFont.style.backgroundColor = playerFontColor;
   }
 }
 function play(){
-  let random = randomNumber();
-    diceImage.setAttribute("src", diceFaceNumber[random]);
-  if (random !== 1){
-    currentDiceScore += random;
-    
-    currentPlayer.currentDiceScore.textContent = currentDiceScore;
-    
-  }
-  else{
+  if(gameRunning){
+    let random = randomNumber();
+      diceImage.setAttribute("src", diceFaceNumber[random]);
+    if (random !== 1){
+      currentDiceScore += random;
+      currentPlayer.currentDiceScore.textContent = currentDiceScore;
+    }
+    else{
 
-    currentDiceScore = 0;
-    currentPlayer.currentDiceScore.textContent = currentDiceScore;
-    changePlayer();
-    
+      currentDiceScore = 0;
+      currentPlayer.currentDiceScore.textContent = currentDiceScore;
+      changePlayer();
+    }
   }
 }
 function holdScore(){
 
   let score = currentDiceScore + Number(currentPlayer.globalDiceScore.textContent);
-
   currentPlayer.globalDiceScore.textContent = score;
+  
   if(score >= 100) {
     resetGame ()
     win();
