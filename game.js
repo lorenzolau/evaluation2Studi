@@ -98,6 +98,7 @@ function holdScore(){
   }
   currentDiceScore = 0;
   currentPlayer.currentDiceScore.textContent = currentDiceScore;
+  changePlayer();
 }
 function win(){
   alert(currentPlayer.name +" Gagne la partie !")
