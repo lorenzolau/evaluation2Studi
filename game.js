@@ -50,7 +50,8 @@ function randomNumber () {
 function resetGame () {
   gameRunning = true;
   currentPlayer = Player1;
-  currentPlayer.playerFont.style.backgroundColor= playerFontColor;
+  player1Font.style.backgroundColor= playerFontColor;
+  player2Font.style.backgroundColor= playerFontColorNotPlaying;
   scorePlayer1.textContent = 0;
   currentScorePlayer1.textContent = 0;
   scorePlayer2.textContent = 0;
@@ -80,7 +81,6 @@ function play(){
       currentPlayer.currentDiceScore.textContent = currentDiceScore;
     }
     else{
-
       currentDiceScore = 0;
       currentPlayer.currentDiceScore.textContent = currentDiceScore;
       changePlayer();
