@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta name="Description" content="Holderdice est un jeu de dé où peuvent s'affronter deux joueurs.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/css" rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <title>HOLDERDICE</title>
+</head>
+<body>
+<header>
+  <p class="title">HOLDERDICE V1.0</p>
+</header>
+
+
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-xs-6  one">
+      <div class="card bg-light">
+        <div class="card-body smallBody">
+          <h5 class="card-title" id="player1Name">Score Joueur 1</h5>
+          <img class="card-img imgDisplay" src="images/joueur1.png">
+          <p class="score" id="currentScorePlayer1">0</p>
+          <p class="score" id="scorePlayer1">0</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 two">
+      <div class="card bg-light">
+        <div class="card-body">
+          <h5 class="card-title">Lancer ou Garder !</h5>
+          <div class="diceImg">
+            <img class="card-img" id="diceImg" src="images/3.png">
+          </div>
+            <div class="buttons">
+              <button href="#" class="btn btn-primary" id="lancer">Lancer</button>
+              <button href="#" class="btn btn-success" id="garder">Garder</button>
+            </div>
+            <div class="reset">
+              <button href="#" class="btn btn-warning" id="reset">Reset</button>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 col-xs-6 three">
+      <div class="card bg-light">
+        <div class="card-body smallBody">
+          <h5 class="card-title" id="player2Name">Score Joueur 2</h5>
+          <img class="card-img imgDisplay" src="images/joueur2.png">
+          <p class="score" id="currentScorePlayer2">0</p>
+          <p class="score" id="scorePlayer2">0</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <footer>
+    <p class="copyright">© SpiroxDev Novembre 2021</p>
+  </footer>
+<script src="game.js"></script>
+</body>
+</html>
